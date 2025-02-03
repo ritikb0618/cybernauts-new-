@@ -65,7 +65,7 @@
   <script>
     async function fetchData() {
       const password = document.getElementById('adminPassword').value;
-      const response = await fetch('/admin_login', {
+      const response = await fetch('/form/admin_login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

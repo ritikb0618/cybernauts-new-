@@ -63,61 +63,72 @@
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-        <form action='/form' class="row g-3" method="post">
-          <input type="hidden" id="hdn" name="hdn">
+          <form action='/form' class="row g-3" method="post">
+            <input type="hidden" id="hdn" name="hdn">
             
-              <div class="col-md-6">
-                <label for="txtName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="txtName" name="firstName" required style="background-color: black; color: white;">
-              </div>
-              <div class="col-md-6">
-                <label for="txtLastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="txtLastName" name="lastName" style="background-color: black; color: white;"  required >
-              </div>
-    
-              
-              
-             
-              <div class="col-md-6">
-                <label for="txtPhone" class="form-label">Phone</label>
-                <input type="text" class="form-control" id="txtPhone" name="phone" style="background-color: black; color: white;"  required >
-              </div>
-        
-              <div class="col-md-6">
+            <div class="col-md-6">
+              <label for="txtName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="txtName" name="firstName" required style="background-color: black; color: white;">
+            </div>
+            <div class="col-md-6">
+              <label for="txtLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="txtLastName" name="lastName" style="background-color: black; color: white;" required>
+            </div>
+            
+            <div class="col-md-6">
+              <label for="txtPhone" class="form-label">Phone</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="txtPhone" 
+                name="phone" 
+                style="background-color: black; color: white;" 
+                required
+                pattern="\d{10}"
+                title="Please enter a valid 10-digit phone number (e.g., 1234567890)"
+              >
+            </div>
+            
+            <div class="col-md-6">
               <label for="txtEmail" class="form-label">Email</label>
-              <input type="text" class="form-control" id="txtEmail" name="email" style="background-color: black; color: white;"  required >
-            </div> 
-           
+              <input 
+                type="email" 
+                class="form-control" 
+                id="txtEmail" 
+                name="email" 
+                style="background-color: black; color: white;" 
+                required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                title="Please enter a valid email address (e.g., example@domain.com)"
+              >
+            </div>
             
+            <div class="col-md-12">
+              <label for="branch" class="form-label">Branch</label>
+              <input type="text" class="form-control" id="branch" name="branch" style="background-color: black; color: white;" required>
+            </div>
             
-              <div class="col-md-12">
-                <label for="branch" class="form-label">Branch</label>
-                <input type="text" class="form-control" id="branch" name="branch" style="background-color: black; color: white;"  required >
-              </div>
-        
-              <div class="col-md-12">
-                <label for="domain" class="form-label">Interested Domain</label>
-                <select id="domain" name="domain" class="form-select" multiple style="background-color: black; color: white;"  required >
-                  <option value="Web Dev">Web Dev</option>
-                  <option value="Cloud Computing">Cloud Computing</option>
-                  <option value="Competitive Programming">Competitive Programming</option>
-                  <option value="Cloud Computing">Cloud Computing</option>
-                  <option value="App Dev">App Dev</option>
-                  <option value="Game Dev">Game Dev</option>
-                  <option value="Cyber security">Cyber security</option>
-                </select>
-              </div>
-              <div class="form-floating" class="col-md-9">
-                <textarea class="form-control" placeholder="Leave a comment here" id="skills" name="skills" style="height: 100px;background-color: black; color: white;"  required ></textarea>
-                <label for="skills">Your Soft Skills</label>
-              </div>
-           
+            <div class="col-md-12">
+              <label for="domain" class="form-label">Interested Domain</label>
+              <select id="domain" name="domain" class="form-select" multiple style="background-color: black; color: white;" required>
+                <option value="Web Dev">Web Dev</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Competitive Programming">Competitive Programming</option>
+                <option value="App Dev">App Dev</option>
+                <option value="Game Dev">Game Dev</option>
+                <option value="Cyber security">Cyber security</option>
+              </select>
+            </div>
+            
+            <div class="col-md-12 form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="skills" name="skills" style="height: 100px; background-color: black; color: white;" required></textarea>
+              <label for="skills">Your Soft Skills</label>
+            </div>
+            
             <div class="col-12">
-                <center>
-                  <p class="admin" id="admin">Are you an admin?</p>
-              <button type="submit" class="btn btn-primary" id="savebtn">Register</button>
-              
-            </center>
+              <center>
+                <button type="submit" class="btn btn-primary" id="savebtn">Register</button>
+              </center>
             </div>
           </form>
         </div>

@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require("express");
 const path = require("path");
 const userModel=require('./models/user')
+const userModel2=require('./models/message')
 const dbConnection=require('./config/db');
 
 const app = express();
@@ -41,11 +42,11 @@ app.post("/form", async (req, res) => {
   }
 });
 
-app.get('/admin_login',(req,res)=>{
+app.get('/form/admin_login',(req,res)=>{
   res.render('admin_login')
 })
 
-app.post('/admin_login', async (req, res) => {
+app.post('/form/admin_login', async (req, res) => {
   const { password } = req.body;
 
   // Debugging: Log the received and stored passwords
@@ -63,6 +64,40 @@ app.post('/admin_login', async (req, res) => {
     res.status(500).json({ error: "Server error" }); // Return JSON for server errors
   }
 });
+
+app.post('/message',async(req,res)=>{
+  const {email,message}=req.body
+
+  await userModel2.create({
+    email:email,
+    message:message
+  });
+
+  res.redirect('/')
+})
+
+app.get('/list_messages',(req,res)=>{
+  res.render('list_messages')
+})
+
+app.post('/list_messages',async (req,res)=>{
+  const { password } = req.body;
+
+  // Debugging: Log the received and stored passwords
+  // console.log("Received password:", password);
+  // console.log("Stored password:", process.env.ADMIN);
+
+  if (password.trim() !== process.env.MESSAGE.trim()) {
+    return res.status(401).json({ error: "Admin ban ja pehle" }); // Return JSON for invalid password
+  }
+
+  try {
+    const data = await userModel2.find({});
+    res.json(data); // Return data as JSON
+  } catch (e) {
+    res.status(500).json({ error: "Server error" }); // Return JSON for server errors
+  }
+})
 
 dbConnection
   .then(() => {

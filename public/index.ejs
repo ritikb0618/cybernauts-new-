@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="about.css" />
     <link rel="stylesheet" href="baani.css"/>
+    <link rel="stylesheet" href="ribbon.css"/>
     <!-- <link rel="stylesheet" href="vision.css"> -->
     <link
       rel="stylesheet"
@@ -139,25 +140,52 @@
           </div>
         </div>
         <div class="right">
-          <!-- <div class="subscribe">
-            <div class="inputbox">
-              <input type="text" required="required" />
-              <span>Your email address</span>
-              <i></i>
+
+          <form action="/message" method="post">
+            <div class="subscribe">
+              <div class="inputbox">
+                <input 
+                  type="email" 
+                  name="email" 
+                  required="required" 
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                  title="Please enter a valid email address (e.g., example@domain.com)" 
+                />
+                <span>Your email address</span>
+                <i></i>
+              </div>
+            </div> 
+            <div class="query">
+              <div class="query-input">
+                <textarea id="query-input" name="message" required="required"></textarea>
+                <span id="query-placeholder">Drop your msg</span>
+                <i></i>
+              </div>
+              <button class="send" type="submit">Register</button>
             </div>
-          </div> -->
-          <!-- <div class="query">
-            <div class="query-input">
-              <textarea id="query-input" required="required"></textarea>
-              <span id="query-placeholder">Drop your msg</span>
-              <i></i>
-            </div>
-          </div> -->
-          <a href="/form" ><button class="send">Register</button></a>
+          </form>
+          
+
         </div>
+
       </div>
     </section>
     <section class="footer11">
+      
+        <div class="ribbon">
+          <marquee scrollamount="15">
+          <span onclick="handleFormClick()">Ready to join us?</span>
+
+          <span onclick="handleFormClick()">Ready to join us?</span>
+
+          <span onclick="handleFormClick()">Ready to join us?</span>
+
+          <span onclick="handleFormClick()">Ready to join us?</span>
+        </marquee>
+      </div>
+      
+      
+    
       <footer>
         <div class="container-pr">
           <div class="wrapper">
@@ -317,6 +345,10 @@
     x.className = "topnav";
   }
 }
+function handleFormClick() {
+    window.location.href = "/form";
+}
+
     </script>
   </body>
 </html>
