@@ -6,16 +6,16 @@
 
 .ribbon {
     width: 100%;
-    background-color: black;
+    background-color: #0A1172 → #008080;
     color: white;
-    max-height: 4vh;
+    max-height: 3vh;
     /* color: black; */
     display: flex;
     justify-content: center;
     align-items: center;
     
 }
-@key
+
 @font-face {
     font-family: 'ribbon';
     src: url('/fonts/TechnicalDrawing.ttf');
@@ -24,10 +24,10 @@
 .ribbon span {
     font-size: 1.5vw;
     font-family: 'ribbon', sans-serif;
-    color: white;
+    color: #E0FFFF;
     cursor: pointer;
     margin: min(2em,2%);
-    margin: 0 100px;
+    margin: 20px 100px;
     text-decoration: none;
 }
 
